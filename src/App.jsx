@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "./components/Card";
 
-const images = ["calathea", "monstera", "scindapsus"];
+const images = ["calathea", "monstera", "scindapsus", "schefflera", "zamioculcas"];
 
 export default function App() {
   const [cards, setCards] = useState([...images, ...images]);
