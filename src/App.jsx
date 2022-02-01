@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Card from "./components/Card";
+import shuffle from "array-shuffle";
 
 const images = ["calathea", "monstera", "scindapsus", "schefflera", "zamioculcas"];
 
 export default function App() {
-  const [cards, setCards] = useState([...images, ...images]);
+  const [cards, setCards] = useState(shuffle([...images, ...images]));
   const [flippedIndexes, setFlippedIndexes] = useState([]);
-  console.log(flippedIndexes);
+  const [clickBlocked, setClickBlocked] = useState(false);
 
   return (
     <div className="container">
@@ -21,8 +22,25 @@ export default function App() {
             image={card}
             isFlipped={flippedIndexes.includes(i)}
             onClick={() => {
-              console.log(i);
-              setFlippedIndexes([...flippedIndexes, i]);
+              if (clickBlocked) {
+                return;
+              }
+              const newIndexes = [...flippedIndexes, i];
+              if (newIndexes.length % 2 === 0 && newIndexes.length !== 0) {
+                const card1 = cards[i];
+                const card2 = cards[flippedIndexes[flippedIndexes.length - 1]];
+                if (card1 !== card2) {
+                  setClickBlocked(true);
+                  setTimeout(() => {
+                    const toSet = [...newIndexes];
+                    toSet.pop();
+                    toSet.pop();
+                    setFlippedIndexes(toSet);
+                    setClickBlocked(false);
+                  }, 2000);
+                }
+              }
+              setFlippedIndexes(newIndexes);
             }}
           />
         ))}
