@@ -7,7 +7,13 @@ const images = ["calathea", "monstera", "scindapsus", "schefflera", "zamioculcas
 export default function App() {
   const [cards, setCards] = useState(shuffle([...images, ...images]));
   const [flippedIndexes, setFlippedIndexes] = useState([]);
-  const [clickBlocked, setClickBlocked] = useState(false);
+
+  const restartGame = () => {
+    setFlippedIndexes([]);
+    setTimeout(() => {
+      setCards(shuffle([...images, ...images]));
+    }, 800);
+  };
 
   return (
     <div className="container">
@@ -22,29 +28,23 @@ export default function App() {
             image={card}
             isFlipped={flippedIndexes.includes(i)}
             onClick={() => {
-              if (clickBlocked) {
-                return;
-              }
-              const newIndexes = [...flippedIndexes, i];
-              if (newIndexes.length % 2 === 0 && newIndexes.length !== 0) {
-                const card1 = cards[i];
+              const newState = [...flippedIndexes];
+              if (flippedIndexes.length % 2 === 0 && flippedIndexes.length !== 0) {
+                const card1 = cards[flippedIndexes[flippedIndexes.length - 2]];
                 const card2 = cards[flippedIndexes[flippedIndexes.length - 1]];
                 if (card1 !== card2) {
-                  setClickBlocked(true);
-                  setTimeout(() => {
-                    const toSet = [...newIndexes];
-                    toSet.pop();
-                    toSet.pop();
-                    setFlippedIndexes(toSet);
-                    setClickBlocked(false);
-                  }, 2000);
+                  newState.pop();
+                  newState.pop();
                 }
               }
-              setFlippedIndexes(newIndexes);
+              setFlippedIndexes([...newState, i]);
             }}
           />
         ))}
       </div>
+      <button className="new-game" onClick={restartGame}>
+        New Game
+      </button>
     </div>
   );
 }

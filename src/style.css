@@ -17,7 +17,7 @@ img {
 
 .container {
   display: flex;
-  width: 630px;
+  width: 760px;
   min-height: 100vh;
   margin: 10px auto;
   flex-direction: column;
@@ -50,8 +50,8 @@ img {
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 140px;
-  min-width: 100px;
+  min-height: 180px;
+  min-width: 130px;
   border: solid 1px #4f494e;
   border-radius: 5px;
   margin: 10px;
@@ -95,4 +95,24 @@ img {
 
 .flip-card-back {
   transform: rotateY(180deg);
+}
+
+.new-game {
+  background-color: transparent;
+  padding: 0.5em 3em;
+  border: 0.16em solid #ffffff;
+  margin: 2rem;
+  box-sizing: border-box;
+  text-decoration: none;
+  text-transform: uppercase;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  text-align: center;
+  transition: all 0.15s;
+}
+
+.new-game:hover {
+  color: #dddddd;
+  border-color: #dddddd;
 }
