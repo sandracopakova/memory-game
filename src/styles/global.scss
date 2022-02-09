@@ -44,57 +44,6 @@ img {
   flex-wrap: wrap;
 }
 
-.flip-card {
-  background-color: transparent;
-  background-repeat: no-repeat;
-  background-size: cover;
-  min-height: 11.25rem;
-  min-width: 8.12rem;
-  border: solid 1px #4f494e;
-  border-radius: 5px;
-  margin: 10px;
-  cursor: pointer;
-  perspective: 1000px;
-  overflow: hidden;
-}
-
-.flip-card__inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.8s;
-  transform-style: preserve-3d;
-}
-
-.flip-card--flipped .flip-card__inner {
-  transform: rotateY(180deg);
-}
-
-.flip-card__front,
-.flip-card__back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden; /* Safari */
-  backface-visibility: hidden;
-}
-
-.flip-card__back > img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.flip-card__front {
-  background-color: #bbb;
-  color: black;
-}
-
-.flip-card__back {
-  transform: rotateY(180deg);
-}
-
 .new-game {
   background-color: transparent;
   padding: 0.37rem 2.5rem;
@@ -114,3 +63,5 @@ img {
   color: #dddddd;
   border-color: #dddddd;
 }
+
+@import "./card.scss";
