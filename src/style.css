@@ -6,7 +6,6 @@
 
 body {
   background: #4f494e;
-  /*color: #c8ac93;*/
   color: #e8eeee;
   font-family: "Ubuntu", sans-serif;
 }
@@ -46,12 +45,11 @@ img {
 }
 
 .flip-card {
-  /*background: url(./images/plants.jpg);*/
   background-color: transparent;
   background-repeat: no-repeat;
   background-size: cover;
-  min-height: 180px;
-  min-width: 130px;
+  min-height: 11.25rem;
+  min-width: 8.12rem;
   border: solid 1px #4f494e;
   border-radius: 5px;
   margin: 10px;
@@ -60,7 +58,7 @@ img {
   overflow: hidden;
 }
 
-.flip-card-inner {
+.flip-card__inner {
   position: relative;
   width: 100%;
   height: 100%;
@@ -69,12 +67,12 @@ img {
   transform-style: preserve-3d;
 }
 
-.flip-card--flipped .flip-card-inner {
+.flip-card--flipped .flip-card__inner {
   transform: rotateY(180deg);
 }
 
-.flip-card-front,
-.flip-card-back {
+.flip-card__front,
+.flip-card__back {
   position: absolute;
   width: 100%;
   height: 100%;
@@ -82,25 +80,25 @@ img {
   backface-visibility: hidden;
 }
 
-.flip-card-back > img {
+.flip-card__back > img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
 
-.flip-card-front {
+.flip-card__front {
   background-color: #bbb;
   color: black;
 }
 
-.flip-card-back {
+.flip-card__back {
   transform: rotateY(180deg);
 }
 
 .new-game {
   background-color: transparent;
-  padding: 0.5em 3em;
-  border: 0.16em solid #ffffff;
+  padding: 0.37rem 2.5rem;
+  border: 0.06rem solid #ffffff;
   margin: 2rem;
   box-sizing: border-box;
   text-decoration: none;
