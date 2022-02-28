@@ -15,6 +15,8 @@ export default function App() {
     }, 800);
   };
 
+  const isWin = cards.length === flippedIndexes.length;
+
   return (
     <div className="container">
       <div className="header">
@@ -27,6 +29,7 @@ export default function App() {
             key={"card" + i}
             image={card}
             isFlipped={flippedIndexes.includes(i)}
+            showTitle={isWin}
             onClick={() => {
               const newState = [...flippedIndexes];
               if (flippedIndexes.length % 2 === 0 && flippedIndexes.length !== 0) {
